@@ -26,7 +26,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-  require 'pairtree' # You'll need to do this in rails, as it won't find it automatically.
+  require 'rpairtree' # You'll need to do this in rails, as it won't find it automatically.
 
   # Initiate a tree
   pairtree = Pairtree.at('./data', :prefix => 'pfx:', :create => true)
