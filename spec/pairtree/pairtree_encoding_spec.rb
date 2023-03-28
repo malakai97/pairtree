@@ -1,10 +1,8 @@
-# encoding: utf-8
-require 'spec_helper'
-require 'pairtree'
+require "spec_helper"
+require "pairtree"
 
 describe "Pairtree encoding" do
-
-  def roundtrip(id, expected_encoded=nil, expected_path=nil)
+  def roundtrip(id, expected_encoded = nil, expected_path = nil)
     encoded = Pairtree::Identifier.encode(id)
     unless expected_encoded.nil?
       expect(encoded).to eql(expected_encoded)
@@ -14,50 +12,50 @@ describe "Pairtree encoding" do
       expect(path).to eql(expected_path)
     end
     str = Pairtree::Identifier.decode(encoded)
-    
+
     if str.respond_to? :force_encoding
       str.force_encoding("UTF-8")
     end
 
     expect(str).to eql(id)
   end
-  
+
   it "should handle a" do
-    roundtrip('a', 'a', 'a/a')
+    roundtrip("a", "a", "a/a")
   end
 
   it "should handle ab" do
-    roundtrip('ab', 'ab', 'ab/ab')
+    roundtrip("ab", "ab", "ab/ab")
   end
 
   it "should handle abc" do
-    roundtrip('abc', 'abc', 'ab/c/abc')
+    roundtrip("abc", "abc", "ab/c/abc")
   end
 
   it "should handle abcd" do
-    roundtrip('abcd', 'abcd', 'ab/cd/abcd')
+    roundtrip("abcd", "abcd", "ab/cd/abcd")
   end
 
   it "should handle space" do
-    roundtrip('hello world', 'hello^20world', 'he/ll/o^/20/wo/rl/d/hello^20world')
+    roundtrip("hello world", "hello^20world", "he/ll/o^/20/wo/rl/d/hello^20world")
   end
 
   it "should handle slash" do
-    roundtrip("/","=",'=/=')
+    roundtrip("/", "=", "=/=")
   end
 
   it "should handle urn" do
-    roundtrip('http://n2t.info/urn:nbn:se:kb:repos-1','http+==n2t,info=urn+nbn+se+kb+repos-1','ht/tp/+=/=n/2t/,i/nf/o=/ur/n+/nb/n+/se/+k/b+/re/po/s-/1/http+==n2t,info=urn+nbn+se+kb+repos-1')
+    roundtrip("http://n2t.info/urn:nbn:se:kb:repos-1", "http+==n2t,info=urn+nbn+se+kb+repos-1", "ht/tp/+=/=n/2t/,i/nf/o=/ur/n+/nb/n+/se/+k/b+/re/po/s-/1/http+==n2t,info=urn+nbn+se+kb+repos-1")
   end
-  
+
   it "should handle wtf" do
-    roundtrip('what-the-*@?#!^!?', "what-the-^2a@^3f#!^5e!^3f", "wh/at/-t/he/-^/2a/@^/3f/#!/^5/e!/^3/f/what-the-^2a@^3f#!^5e!^3f")
+    roundtrip("what-the-*@?#!^!?", "what-the-^2a@^3f#!^5e!^3f", "wh/at/-t/he/-^/2a/@^/3f/#!/^5/e!/^3/f/what-the-^2a@^3f#!^5e!^3f")
   end
 
   it "should handle special characters" do
     roundtrip('\\"*+,<=>?^|', "^5c^22^2a^2b^2c^3c^3d^3e^3f^5e^7c")
   end
-  
+
   it "should roundtrip hardcore Unicode" do
     roundtrip(%{
        1. Euro Symbol: €.
@@ -76,9 +74,9 @@ describe "Pairtree encoding" do
       14. Thai: ฉันกินกระจกได้ แต่มันไม่ทำให้ฉันเจ็บ "
     })
   end
-  
+
   it "should roundtrip French" do
-    roundtrip('Années de Pèlerinage', 'Ann^c3^a9es^20de^20P^c3^a8lerinage', 'An/n^/c3/^a/9e/s^/20/de/^2/0P/^c/3^/a8/le/ri/na/ge/Ann^c3^a9es^20de^20P^c3^a8lerinage')
+    roundtrip("Années de Pèlerinage", "Ann^c3^a9es^20de^20P^c3^a8lerinage", "An/n^/c3/^a/9e/s^/20/de/^2/0P/^c/3^/a8/le/ri/na/ge/Ann^c3^a9es^20de^20P^c3^a8lerinage")
     roundtrip(%{
       Années de Pèlerinage (Years of Pilgrimage) (S.160, S.161,
       S.163) is a set of three suites by Franz Liszt for solo piano. Liszt's
@@ -89,6 +87,5 @@ describe "Pairtree encoding" do
       was composed well after the first two volumes and often displays less
       showy virtuosity and more harmonic experimentation.
     })
- end
-  
+  end
 end

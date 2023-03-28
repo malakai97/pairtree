@@ -1,11 +1,11 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
 
-require 'bundler/setup'
-require 'rspec'
+require "bundler/setup"
+require "rspec"
 
-require 'simplecov'
-require 'simplecov-lcov'
+require "simplecov"
+require "simplecov-lcov"
 SimpleCov::Formatter::LcovFormatter.config do |c|
   c.report_with_single_file = true
   c.single_report_path = "coverage/lcov.info"
@@ -16,8 +16,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-require 'pairtree'
+require "pairtree"
 
 RSpec.configure do |config|
-  
 end
