@@ -1,10 +1,10 @@
-require 'fileutils'
+require "fileutils"
 module Pairtree
   class Root
     SHORTY_LENGTH = 2
 
     attr_reader :root, :prefix
-    
+
     ##
     # @param [String] root The pairtree_root directory within the pairtree home
     # @param [Hash] args Pairtree options
@@ -12,9 +12,9 @@ module Pairtree
     # @option args [String] :version (Pairtree::SPEC_VERSION) the version of the pairtree spec that this tree conforms to
     def initialize root, args = {}
       @root = root
-      
+
       @shorty_length = args.delete(:shorty_length) || SHORTY_LENGTH
-      @prefix = args.delete(:prefix) || ''
+      @prefix = args.delete(:prefix) || ""
 
       @options = args
     end
@@ -22,15 +22,15 @@ module Pairtree
     ##
     # Get a list of valid existing identifiers within the pairtree
     # @return [Array]
-    def list          
+    def list
       objects = []
       return [] unless File.directory? @root
 
       Dir.chdir(@root) do
-        possibles = Dir['**/?'] + Dir['**/??']
+        possibles = Dir["**/?"] + Dir["**/??"]
         possibles.each { |path|
           contents = Dir.entries(path).reject { |x| x =~ /^\./ }
-          objects << path unless contents.all? { |f| f.length <= @shorty_length and File.directory?(File.join(path, f)) }
+          objects << path unless contents.all? { |f| (f.length <= @shorty_length) && File.directory?(File.join(path, f)) }
         }
       end
       objects.map { |x| @prefix + Pairtree::Path.path_to_id(x) }
@@ -42,7 +42,7 @@ module Pairtree
     def path
       File.dirname(root)
     end
-    
+
     ##
     # Get the full path for a given identifier (whether it exists or not)
     # @param [String] id The full, prefixed identifier
@@ -51,7 +51,7 @@ module Pairtree
       unless id.start_with? @prefix
         raise IdentifierError, "Identifier must start with #{@prefix}"
       end
-      path_id = id[@prefix.length..-1]
+      path_id = id[@prefix.length..]
       File.join(@root, Pairtree::Path.id_to_path(path_id))
     end
 
@@ -62,7 +62,7 @@ module Pairtree
     def exists? id
       File.directory?(path_for(id))
     end
-    
+
     ##
     # Get an existing ppath
     # @param [String] id The full, prefixed identifier
@@ -71,7 +71,7 @@ module Pairtree
       Pairtree::Obj.new path_for(id)
     end
     alias_method :[], :get
-    
+
     ##
     # Create a new ppath
     # @param [String] id The full, prefixed identifier
@@ -80,7 +80,7 @@ module Pairtree
       FileUtils.mkdir_p path_for(id)
       get(id)
     end
-    
+
     ##
     # Delete a ppath
     # @param [String] id The full, prefixed identifier
@@ -89,7 +89,7 @@ module Pairtree
       if exists?(id)
         Pairtree::Path.remove!(path_for(id))
       end
-      not exists?(id)
+      !exists?(id)
     end
 
     ##
@@ -98,6 +98,5 @@ module Pairtree
     def pairtree_version
       @options[:version]
     end
-    
   end
 end

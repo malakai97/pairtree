@@ -1,3 +1,7 @@
+[![Tests](https://github.com/mlibrary/pairtree/actions/workflows/tests.yaml/badge.svg)](https://github.com/mlibrary/pairtree/actions/workflows/tests.yaml)
+[![Coverage Status](https://coveralls.io/repos/github/mlibrary/pairtree/badge.svg?branch=main)](https://coveralls.io/github/mlibrary/pairtree?branch=main)
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
+
 # (r)pairtree
 
 Ruby implementation of the [Pairtree](https://wiki.ucop.edu/display/Curation/PairTree) specification from the California Digital Library.
