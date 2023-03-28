@@ -1,22 +1,16 @@
-[![Tests](https://github.com/mlibrary/pairtree/actions/workflows/tests.yaml/badge.svg)](https://github.com/mlibrary/pairtree/actions/workflows/tests.yaml)
-[![Coverage Status](https://coveralls.io/repos/github/mlibrary/pairtree/badge.svg?branch=main)](https://coveralls.io/github/mlibrary/pairtree?branch=main)
+[![Tests](https://github.com/ruby-microservices/pairtree/actions/workflows/tests.yml/badge.svg)](https://github.com/ruby-microservices/pairtree/actions/workflows/tests.yml)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
-# (r)pairtree
+# pairtree
 
-Ruby implementation of the [Pairtree](https://wiki.ucop.edu/display/Curation/PairTree) specification from the California Digital Library.
-
-## Description
-
-A fork of the seemingly-abandoned  [pairtree](https://github.com/microservices/pairtree).
-
+Ruby implementation of the [Pairtree](https://www.ietf.org/archive/id/draft-kunze-pairtree-01.txt) specification from the California Digital Library.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rpairtree'
+gem 'pairtree'
 ```
 
 And then execute:
@@ -25,12 +19,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rpairtree
+    $ gem install pairtree
 
 ## Usage
 
 ```ruby
-  require 'pairtree' # You'll need to do this in rails, as it won't find it automatically.
+  require 'pairtree'
 
   # Initiate a tree
   pairtree = Pairtree.at('./data', :prefix => 'pfx:', :create => true)
@@ -57,4 +51,6 @@ Or install it yourself as:
   pairtree.purge!('pfx:abc123def')
 ```
 
+##  Copyright
 
+Copyright (c) 2010 Chris Beer. See LICENSE.txt for further details.
