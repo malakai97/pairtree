@@ -1,10 +1,31 @@
+[![Tests](https://github.com/ruby-microservices/pairtree/actions/workflows/tests.yml/badge.svg)](https://github.com/ruby-microservices/pairtree/actions/workflows/tests.yml)
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
+
 # pairtree
 
-Ruby implementation of the [Pairtree](https://confluence.ucop.edu/display/Curation/PairTree microservice specification from the California Digital Librar)
+Ruby implementation of the [Pairtree](https://www.ietf.org/archive/id/draft-kunze-pairtree-01.txt) specification from the California Digital Library.
 
-# Usage
+## Installation
+
+Add this line to your application's Gemfile:
 
 ```ruby
+gem 'pairtree'
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install pairtree
+
+## Usage
+
+```ruby
+  require 'pairtree'
+
   # Initiate a tree
   pairtree = Pairtree.at('./data', :prefix => 'pfx:', :create => true)
   
@@ -29,9 +50,7 @@ Ruby implementation of the [Pairtree](https://confluence.ucop.edu/display/Curati
   # Delete a ppath and all its contents
   pairtree.purge!('pfx:abc123def')
 ```
-  
+
 ##  Copyright
 
-Copyright (c) 2010 Chris Beer. See LICENSE.txt for
-further details.
-
+Copyright (c) 2010 Chris Beer. See LICENSE.txt for further details.
