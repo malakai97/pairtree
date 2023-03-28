@@ -1,4 +1,5 @@
-[![Tests](https://github.com/ruby-microservices/pairtree/actions/workflows/tests.yml/badge.svg)](https://github.com/ruby-microservices/pairtree/actions/workflows/tests.yml)
+[![Tests](https://github.com/mlibrary/pairtree/actions/workflows/tests.yml/badge.svg)](https://github.com/mlibrary/pairtree/actions/workflows/tests.yml)
+[![Coverage Status](https://coveralls.io/repos/github/mlibrary/pairtree/badge.svg?branch=main)](https://coveralls.io/github/mlibrary/pairtree?branch=main)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
 # pairtree
