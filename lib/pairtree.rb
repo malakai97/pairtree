@@ -30,12 +30,12 @@ module Pairtree
     existing_version_file = Dir[File.join(path, "pairtree_version*")].sort.last
     
     if args.delete(:create)
-      if File.exists?(path) and not File.directory?(path)
+      if File.exist?(path) and not File.directory?(path)
         raise PathError, "#{path} exists, but is not a valid pairtree root"
       end
       FileUtils.mkdir_p(root_path)
 
-      unless File.exists? prefix_file
+      unless File.exist? prefix_file
         File.open(prefix_file, 'w') { |f| f.write(args[:prefix].to_s) }
       end
       

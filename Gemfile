@@ -4,6 +4,8 @@ source "https://rubygems.org"
 gemspec
 
 
-gem 'rcov', :platform => :mri_18
-gem 'simplecov', :platforms => [:mri_19, :mri_20]
-gem 'simplecov-rcov', :platforms => [:mri_19, :mri_20]
+group :development, :test do
+  gem 'simplecov'
+  gem 'standardrb'
+  gem "simplecov-lcov"
+end
