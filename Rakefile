@@ -17,13 +17,6 @@ require "rspec/core/rake_task"
 desc "Default: run specs."
 task default: :spec
 
-RSpec::Core::RakeTask.new do |t|
-  if ENV["COVERAGE"] && RUBY_VERSION =~ (/^1.8/)
-    t.rcov = true
-    t.rcov_opts = ["--exclude", "spec", "--exclude", "gems"]
-  end
-end
-
 # Use yard to build docs
 begin
   require "yard"

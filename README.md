@@ -2,14 +2,14 @@
 [![Coverage Status](https://coveralls.io/repos/github/mlibrary/pairtree/badge.svg?branch=main)](https://coveralls.io/github/mlibrary/pairtree?branch=main)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
-# (r)pairtree
+> :warning: Please use https://github.com/ruby-microservices/pairtree
+> It is now being maintained again, so there is no need for this separate fork.
+> `pairtree` 0.3.0 and `rpairtree` 0.3.0 are identical. This repository will be
+> archived, and there will be no further releases of `rpairtree`.
 
-Ruby implementation of the [Pairtree](https://wiki.ucop.edu/display/Curation/PairTree) specification from the California Digital Library.
+# rpairtree
 
-## Description
-
-A fork of the seemingly-abandoned  [pairtree](https://github.com/microservices/pairtree).
-
+Ruby implementation of the [Pairtree](https://www.ietf.org/archive/id/draft-kunze-pairtree-01.txt) specification from the California Digital Library.
 
 ## Installation
 
@@ -30,7 +30,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-  require 'pairtree' # You'll need to do this in rails, as it won't find it automatically.
+  require 'pairtree'
 
   # Initiate a tree
   pairtree = Pairtree.at('./data', :prefix => 'pfx:', :create => true)
@@ -57,4 +57,6 @@ Or install it yourself as:
   pairtree.purge!('pfx:abc123def')
 ```
 
+##  Copyright
 
+Copyright (c) 2010 Chris Beer. See LICENSE.txt for further details.
