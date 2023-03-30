@@ -1,8 +1,16 @@
 Gem::Specification.new do |s|
-  s.name = "pairtree"
+  deprecation_warning = <<~EOT
+    rpairtree is deprecated; please use pairtree instead, which is now being
+    maintained.  rpairtree 0.3.0 and pairtree 0.3.0 are identical. There will be no
+    further releases of rpairtree.
+  EOT
+
+  s.name = "rpairtree"
   s.summary = "Ruby Pairtree implementation"
+  s.description = deprecation_warning
+  s.post_install_message = deprecation_warning
   s.version = "0.3.0"
-  s.homepage = "http://github.com/ruby-microservices/pairtree"
+  s.homepage = "http://github.com/mlibrary/pairtree"
   s.licenses = ["Apache2"]
   s.authors = ["Chris Beer, Bryan Hockey, Michael Slone, Aaron Elkiss"]
   s.files = `git ls-files`.split("\n")

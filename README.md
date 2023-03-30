@@ -2,7 +2,12 @@
 [![Coverage Status](https://coveralls.io/repos/github/mlibrary/pairtree/badge.svg?branch=main)](https://coveralls.io/github/mlibrary/pairtree?branch=main)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
-# pairtree
+> :warning: Please use https://github.com/ruby-microservices/pairtree
+> It is now being maintained again, so there is no need for this separate fork.
+> `pairtree` 0.3.0 and `rpairtree` 0.3.0 are identical. This repository will be
+> archived, and there will be no further releases of `rpairtree`.
+
+# rpairtree
 
 Ruby implementation of the [Pairtree](https://www.ietf.org/archive/id/draft-kunze-pairtree-01.txt) specification from the California Digital Library.
 
@@ -11,7 +16,7 @@ Ruby implementation of the [Pairtree](https://www.ietf.org/archive/id/draft-kunz
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pairtree'
+gem 'rpairtree'
 ```
 
 And then execute:
@@ -20,7 +25,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install pairtree
+    $ gem install rpairtree
 
 ## Usage
 
